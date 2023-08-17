@@ -13,11 +13,13 @@ const from = ref('')
 const to = ref('')
 const fromCurrency = ref({
   id: 1,
-  symbol: 'USD'
+  symbol: 'USD',
+  name: 'US Dollar'
 })
 const toCurrency = ref({
   id: 2,
-  symbol: 'UAH'
+  symbol: 'UAH',
+  name: 'Hryvnia'
 })
 const fromCurrencyList = computed(() =>
   currenciesStore.list.filter(
@@ -80,7 +82,7 @@ watch(calculateInput, async (value) => {
   <div class="bg-white py-6 p-5 flex flex-col">
     <div>
       <div class="font-medium">Give</div>
-      <div class="grid grid-cols-[150px_1fr]">
+      <div class="grid grid-cols-[180px_1fr]">
         <CurrencySelect v-model="fromCurrency" :items="fromCurrencyList" />
         <CurrencyNumber v-model="from" class="-ms-[1px]" />
       </div>
@@ -94,7 +96,7 @@ watch(calculateInput, async (value) => {
     </div>
     <div>
       <div class="font-medium">Receive</div>
-      <div class="grid grid-cols-[150px_1fr] relative">
+      <div class="grid grid-cols-[180px_1fr] relative">
         <CurrencySelect v-model="toCurrency" :items="toCurrencyList" />
         <CurrencyNumber v-model="to" class="-ms-[1px]" />
         <div class="absolute text-xs text-gray-400 top-1 end-2">
@@ -102,11 +104,11 @@ watch(calculateInput, async (value) => {
         </div>
       </div>
     </div>
-    <div class="flex items-center justify-between pt-4">
-      1 {{ fromCurrency?.symbol }} = {{ rate }} {{ toCurrency?.symbol }}
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pt-4">
+      <div class="mb-4 sm:mb-0">1 {{ fromCurrency?.symbol }} = {{ rate }} {{ toCurrency?.symbol }}</div>
       <Btn :disabled="disabled" @click="!disabled && send()">Change</Btn>
     </div>
-    <div v-if="!enough" class="text-center font-medium uppercase text-red-600">
+    <div v-if="!enough" class="text-center font-medium uppercase text-red-600 pt-2">
       insufficient reserve
     </div>
   </div>

@@ -26,8 +26,8 @@ onClickOutside(wrap, () => {
 </script>
 <template>
   <div ref="wrap" class="flex h-14 relative">
-    <button class="flex items-center w-full px-3 border border-gray-300" @click="show = !show">
-      {{ modelValue?.symbol }}
+    <button class="flex items-center w-full ps-3 pe-1 border border-gray-300" @click="show = !show">
+      <span>{{ modelValue?.symbol }} <small>({{ modelValue?.name }})</small></span>
       <svg
         class="ms-auto transition"
         :class="{ 'rotate-180': show }"
@@ -49,7 +49,7 @@ onClickOutside(wrap, () => {
           class="flex items-center h-8 px-3"
           @click="change(item)"
         >
-          {{ item.symbol }}
+          <span>{{ item?.symbol }} <small>({{ item?.name }})</small></span>
         </button>
       </div>
     </transition>

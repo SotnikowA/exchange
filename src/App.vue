@@ -12,7 +12,7 @@ import Charts from '@/components/Charts.vue'
     </header>
 
     <main class="grow">
-      <div class="2xl:container mx-auto p-4 xl:grid xl:grid-cols-2 gap-4">
+      <div class="2xl:container mx-auto py-4 sm:px-4 xl:grid xl:grid-cols-2 gap-4">
         <div class="mb-4"><ExchangeForm /></div>
         <div>
           <TransactionsTable />

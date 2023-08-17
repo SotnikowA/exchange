@@ -5,7 +5,7 @@ const transactionsStore = useTransactionsStore()
 </script>
 
 <template>
-  <div class="w-full overflow-hidden bg-white p-4 mb-4">
+  <div class="w-full overflow-auto bg-white p-4 mb-4 whitespace-nowrap">
     <table class="w-full">
       <thead>
         <tr>
